@@ -1,0 +1,9 @@
+# Database drivers
+psycopg2-binary==2.9.9
+neo4j==5.20.0
+
+# Data manipulation
+pandas==2.2.2
+
+# Environment variables
+python-dotenv==1.0.1
