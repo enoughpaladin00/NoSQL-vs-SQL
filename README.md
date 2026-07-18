@@ -18,32 +18,25 @@ We extract **Users** and **Computers** as nodes (or tables) and **Network Connec
    cd "Data Management/Project"
    ```
 
-2. **Start the databases:**
+2. **Environment Setup:**
+   Create the virtual environment, install dependencies, and set up your `.env` file with a single command:
+   ```bash
+   ./run.sh setup
+   ```
+
+3. **Start the databases:**
    Use Docker Compose to spin up PostgreSQL and MemGraph:
    ```bash
-   docker-compose up -d
+   ./run.sh start
    ```
    *Note: PostgreSQL runs on port `5433`, MemGraph runs on `7687`, and MemGraph Lab (UI) runs on `3000`.*
-
-3. **Set up Python Environment:**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
-
-4. **Environment Variables:**
-   Copy the example environment file:
-   ```bash
-   cp .env.example .env
-   ```
 
 ## Dataset
 Because the LANL dataset is massive, the `data/` directory is ignored by Git. We are currently using **day 02** and **day 04** of the dataset for our tests.
 
-To download the dataset automatically, run the included script (this will download `wls_day-02.bz2`, `wls_day-04.bz2`, `netflow_day-02.bz2`, and `netflow_day-04.bz2`):
+To download the dataset automatically, run:
 ```bash
-bash scripts/download_data.sh
+./run.sh download
 ```
 
 ## Running the Code
