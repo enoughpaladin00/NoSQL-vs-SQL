@@ -48,10 +48,24 @@ def init_postgres():
         CREATE TABLE HostEvents (
             id SERIAL PRIMARY KEY,
             time INTEGER,
-            user_id VARCHAR(255) REFERENCES Users(id),
-            computer_id VARCHAR(255) REFERENCES Computers(id),
             event_id INTEGER,
-            logon_type INTEGER
+            computer_id VARCHAR(255) REFERENCES Computers(id), -- Corresponds to LogHost
+            logon_type INTEGER,
+            logon_type_description VARCHAR(255),
+            user_id VARCHAR(255) REFERENCES Users(id),
+            logon_id VARCHAR(255),
+            subject_user_id VARCHAR(255),
+            subject_logon_id VARCHAR(255),
+            status VARCHAR(255),
+            source_computer_id VARCHAR(255) REFERENCES Computers(id), -- Corresponds to Source
+            service_name VARCHAR(255),
+            destination VARCHAR(255),
+            authentication_package VARCHAR(255),
+            failure_reason VARCHAR(255),
+            process_name VARCHAR(255),
+            process_id VARCHAR(255),
+            parent_process_name VARCHAR(255),
+            parent_process_id VARCHAR(255)
         );
     """)
 
@@ -60,12 +74,14 @@ def init_postgres():
         CREATE TABLE NetworkEvents (
             id SERIAL PRIMARY KEY,
             time INTEGER,
+            duration INTEGER,
             src_comp_id VARCHAR(255) REFERENCES Computers(id),
             dst_comp_id VARCHAR(255) REFERENCES Computers(id),
             protocol INTEGER,
             src_port VARCHAR(255),
             dst_port VARCHAR(255),
-            duration INTEGER,
+            src_packets BIGINT,
+            dst_packets BIGINT,
             src_bytes BIGINT,
             dst_bytes BIGINT
         );

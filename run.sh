@@ -12,6 +12,7 @@ function usage() {
     echo "  stop        - Stop the Docker containers"
     echo "  schema      - Initialize database schemas in PostgreSQL and Memgraph"
     echo "  ingest      - Run the data ingestion script"
+    echo "  psql        - Open an interactive PostgreSQL terminal"
     echo "  benchmark   - Run the benchmark queries script"
 }
 
@@ -44,6 +45,10 @@ case $COMMAND in
     ingest)
         echo "Starting data ingestion..."
         venv/bin/python src/ingest_data.py
+        ;;
+    psql)
+        echo "Connecting to PostgreSQL interactive terminal..."
+        docker exec -it dm_postgres psql -U postgres -d dm_project
         ;;
     benchmark)
         echo "Running benchmarks..."

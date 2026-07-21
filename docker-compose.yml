@@ -19,11 +19,19 @@ services:
     container_name: dm_memgraph
     ports:
       - "7687:7687"
-      - "3000:3000"
     volumes:
       - mg_lib:/var/lib/memgraph
       - mg_log:/var/log/memgraph
       - mg_etc:/etc/memgraph
+    restart: unless-stopped
+
+  memgraph-lab:
+    image: memgraph/lab:latest
+    container_name: dm_memgraph_lab
+    ports:
+      - "3000:3000"
+    depends_on:
+      - memgraph
     restart: unless-stopped
 
 volumes:
