@@ -1,7 +1,5 @@
 
-
 # Benchmark Queries: PostgreSQL vs Memgraph
-
 This document contains the set of queries designed to analyze the performance of our relational database (PostgreSQL) against our graph database (Memgraph). 
 
 The goal of this benchmark is to prove how SQL and Cypher handle different types of data retrieval, highlighting the complexity and execution times when dealing with relational aggregations versus complex pathfinding (Lateral Movement) in a cybersecurity context.
@@ -10,10 +8,8 @@ The goal of this benchmark is to prove how SQL and Cypher handle different types
 
 ## Test 1: Direct Connections (1 Hop)
 **Objective:** Find all computers directly connected to a specific starting computer.
-**Description:** A basic retrieval query. Both databases should perform this operation quickly and with simple syntax.
 
 **PostgreSQL (SQL):**
-
 SELECT destination_computer 
 FROM network_events 
 WHERE source_computer = 'START_COMPUTER';
