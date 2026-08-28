@@ -53,6 +53,18 @@ Use the `run.sh` script to manage the database schema and data ingestion:
    ```
    *(Note: Currently limited to 1 million rows for development purposes.)*
 
+3. **Run Benchmarks:**
+   Execute the suite of 5 benchmark tests on both unindexed and indexed Postgres vs Memgraph (averaging across 5 runs).
+   ```bash
+   ./run.sh benchmark
+   ```
+
+4. **Generate Plots:**
+   Once benchmarks complete, automatically generate visual bar charts in the `results/` folder using matplotlib.
+   ```bash
+   ./run.sh plot
+   ```
+
 ## Exploring the Data
 
 **PostgreSQL:**
