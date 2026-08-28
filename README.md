@@ -74,6 +74,12 @@ You can quickly drop into an interactive SQL terminal to query Postgres by runni
 ```
 *(Type `\q` to exit).*
 
+**Memgraph (Terminal):**
+You can also drop into a command-line interface for Memgraph by running:
+```bash
+./run.sh mgconsole
+```
+
 **Memgraph (Graph UI):**
 1. Open your web browser and navigate to **http://localhost:3000**.
 2. Click **New Connection** (do not use Quick Connect).

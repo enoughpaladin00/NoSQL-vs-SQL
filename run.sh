@@ -13,6 +13,7 @@ function usage() {
     echo "  schema      - Initialize database schemas in PostgreSQL and Memgraph"
     echo "  ingest      - Run the data ingestion script"
     echo "  psql        - Open an interactive PostgreSQL terminal"
+    echo "  mgconsole   - Open an interactive Memgraph terminal"
     echo "  benchmark   - Run the benchmark queries script"
     echo "  plot        - Generate visual bar charts from benchmark results"
 }
@@ -50,6 +51,10 @@ case $COMMAND in
     psql)
         echo "Connecting to PostgreSQL interactive terminal..."
         docker exec -it dm_postgres psql -U postgres -d dm_project
+        ;;
+    mgconsole)
+        echo "Connecting to Memgraph interactive terminal..."
+        docker exec -it dm_memgraph mgconsole
         ;;
     benchmark)
         echo "Running benchmarks..."
