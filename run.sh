@@ -14,6 +14,7 @@ function usage() {
     echo "  ingest      - Run the data ingestion script"
     echo "  psql        - Open an interactive PostgreSQL terminal"
     echo "  benchmark   - Run the benchmark queries script"
+    echo "  plot        - Generate visual bar charts from benchmark results"
 }
 
 COMMAND=$1
@@ -53,6 +54,10 @@ case $COMMAND in
     benchmark)
         echo "Running benchmarks..."
         venv/bin/python src/benchmark.py
+        ;;
+    plot)
+        echo "Generating plots..."
+        venv/bin/python src/plot_results.py
         ;;
     *)
         usage

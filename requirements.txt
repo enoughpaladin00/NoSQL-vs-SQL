@@ -7,3 +7,7 @@ pandas==2.2.2
 
 # Environment variables
 python-dotenv==1.0.1
+
+# Data Visualization
+matplotlib==3.8.4
+seaborn==0.13.2
