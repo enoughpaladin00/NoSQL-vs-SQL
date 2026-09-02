@@ -4,13 +4,13 @@ import json
 import psycopg2
 from neo4j import GraphDatabase
 
-# Connessioni definitive scoperte dal docker-compose
+
 PG_URL = "postgresql://postgres:password@localhost:5433/dm_project"
 MG_URI = "bolt://localhost:7687"
 MG_USER = ""
 MG_PASS = ""
 
-# Nodi reali per i test
+# Real nodes for tests
 START_COMP = "Comp107130" 
 TARGET_COMP = "Comp916004"
 
